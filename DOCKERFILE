@@ -1,6 +1,5 @@
 FROM node:14
 WORKDIR /
-COPY . .
-CMD node ./src/main/server.js
-FROM python:3.8-slim-buster
+COPY . /opt/angular-python-pi/
+CMD  mkdir ./opt/angular-python-pi/logs && cd ./opt/angular-python-pi/ && npm install && npm run-script build &&  node /opt/angular-python-pi/src/main/server.js
 EXPOSE 8080

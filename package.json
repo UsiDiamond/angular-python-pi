@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node ./src/main/server.js",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.7",
-    "@angular/cli": "~14.2.7",
+    "@angular/cli": "^14.2.11",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
