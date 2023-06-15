@@ -11,5 +11,6 @@ cd ./opt/angular-python-pi/ && \
 python /opt/angular-python-pi/src/main/startup-script.py && \
 npm install && \
 npm run-script build &&  \
+touch /opt/angular-python-pi/logs/cgi.log && \
 node /opt/angular-python-pi/src/main/server.js
 EXPOSE 8080
