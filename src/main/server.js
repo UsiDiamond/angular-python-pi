@@ -1,4 +1,3 @@
-const compression = require('compression');
 const express = require("express");
 const path = require("path");
 const { spawn } = require("child_process");
@@ -18,9 +17,9 @@ var distDir = __dirname + "../../../dist/angular-python-pi/";
 app.use(express.static(distDir));
 
 function getRoot(request, response) {
-    response.sendFile(path.resolve(distDir + 'index.html'));
- }
-app.get('/', getRoot);
+  response.sendFile(path.resolve(distDir + "index.html"));
+}
+app.get("/", getRoot);
 
 /*  "/api/status"
  *   GET: Get server status
