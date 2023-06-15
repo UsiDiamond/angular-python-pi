@@ -1,5 +1,7 @@
 FROM node:14
 WORKDIR /
-COPY . /opt/angular-python-pi/
+COPY src /opt/angular-python-pi/src
+COPY *.json /opt/angular-python-pi/
+COPY *.js /opt/angular-python-pi/
 CMD  mkdir ./opt/angular-python-pi/logs && cd ./opt/angular-python-pi/ && npm install && npm run-script build &&  node /opt/angular-python-pi/src/main/server.js
 EXPOSE 8080
