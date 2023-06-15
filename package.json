@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "start-dev":"ng serve",
     "start": "node ./src/main/server.js",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --watch false",
     "e2e":"protractor ./src/test/protractor-config.js",
     "dockerBuild": "docker build -f .\\DOCKERFILE -t angular-python-pi .",
     "dockerRun":"docker run  --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=NODE_VERSION=14.21.3 --env=YARN_VERSION=1.22.19 --workdir=/ -p 8080:8080 --runtime=runc -d angular-python-pi:latest"
