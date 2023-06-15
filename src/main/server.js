@@ -1,12 +1,11 @@
-
 const express = require("express");
 const { spawn } = require("child_process");
 const app = express();
 const port = 8080;
 // Use body-parser
 var bodyParser = require("body-parser");
-// Define the JSON parser as a default way 
-// to consume and produce data through the 
+// Define the JSON parser as a default way
+// to consume and produce data through the
 // exposed APIs
 app.use(bodyParser.json());
 
