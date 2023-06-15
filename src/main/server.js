@@ -1,4 +1,6 @@
+const compression = require('compression');
 const express = require("express");
+const path = require("path");
 const { spawn } = require("child_process");
 const app = express();
 const port = 8080;
@@ -12,14 +14,13 @@ app.use(bodyParser.json());
 // Create link to Angular build directory
 // The `ng build` command will save the result
 // under the `dist` folder.
-var distDir = __dirname + "/dist/";
+var distDir = __dirname + "../../../dist/angular-python-pi/";
 app.use(express.static(distDir));
 
-// Init the server
-var server = app.listen(process.env.PORT || port, function () {
-  var port = server.address().port;
-  console.log("App now running on port", port);
-});
+function getRoot(request, response) {
+    response.sendFile(path.resolve(distDir + 'index.html'));
+ }
+app.get('/', getRoot);
 
 /*  "/api/status"
  *   GET: Get server status
