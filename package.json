@@ -6,7 +6,8 @@
     "start": "node ./src/main/server.js",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "integrationTest": "protractor ./src/test/protractor-config.js"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +35,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "protractor": "^7.0.0",
     "typescript": "~4.7.2"
   }
 }
