@@ -7,7 +7,9 @@
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "integrationTest": "protractor ./src/test/protractor-config.js"
+    "e2e":"protractor ./src/test/protractor-config.js",
+    "dockerBuild": "docker build -f .\\DOCKERFILE -t angular-python-pi .",
+    "dockerRun":"docker run  --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=NODE_VERSION=14.21.3 --env=YARN_VERSION=1.22.19 --workdir=/ -p 8080:8080 --runtime=runc -d angular-python-pi:latest"
   },
   "private": true,
   "dependencies": {
@@ -35,7 +37,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "protractor": "^7.0.0",
     "typescript": "~4.7.2"
   }
 }
