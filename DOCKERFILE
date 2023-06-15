@@ -3,5 +3,13 @@ WORKDIR /
 COPY src /opt/angular-python-pi/src
 COPY *.json /opt/angular-python-pi/
 COPY *.js /opt/angular-python-pi/
-CMD  mkdir ./opt/angular-python-pi/logs && cd ./opt/angular-python-pi/ && npm install && npm run-script build &&  node /opt/angular-python-pi/src/main/server.js
+CMD apt-get update && \
+apt-get install -y git curl python3.4 python-pip  && \
+pip install pathlib && \
+mkdir ./opt/angular-python-pi/logs && \
+cd ./opt/angular-python-pi/ && \
+python /opt/angular-python-pi/src/main/startup-script.py && \
+npm install && \
+npm run-script build &&  \
+node /opt/angular-python-pi/src/main/server.js
 EXPOSE 8080
