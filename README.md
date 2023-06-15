@@ -4,7 +4,9 @@ Example Repository of a node server using express to deliver an Angular applicat
 
 ## Docker with Build of Angular Application Directly on Device
 Run the following to create the docker image
-```docker build -f .\DOCKERFILE -t angular-python-pi .```
+```npm run-script dockerBuild```
+And then run the image with docker.
+```npm run-script dockerRun```
 
 ## Development server
 
