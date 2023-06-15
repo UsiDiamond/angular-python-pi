@@ -26,7 +26,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `npm run-script integrationTests` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run in another shell
+```webdriver-manager start```
+
+Then run `npm run-script integrationTests` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 You will need to have protractor installed globlally for this to work ```npm -g install protractor```
 
