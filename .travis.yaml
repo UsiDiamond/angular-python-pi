@@ -3,10 +3,11 @@ node_js:
   - "14.0"
 branches:
   only:
-    - master
+    - main
 before_script:
   - npm install -g @angular/cli
   - npm install -g protractor
 script:
   - npm install
-  - npm run build
+  - npm run coverage
+  - npm run test
