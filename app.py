@@ -1,17 +1,7 @@
-# app.py
-from flask import Flask, request, jsonify
-
-app = Flask(__name__)
-
-countries = [
-    {"id": 1, "name": "Thailand", "capital": "Bangkok", "area": 513120},
-    {"id": 2, "name": "Australia", "capital": "Canberra", "area": 7617930},
-    {"id": 3, "name": "Egypt", "capital": "Cairo", "area": 1010408},
-]
-
-def _find_next_id():
-    return max(country["id"] for country in countries) + 1
-
-@app.route("/countries")
-def get_countries():
-    return jsonify(countries)
+def hello(environ, start_response):
+    data = b"Hello, World!\n"
+    start_response("200 OK", [
+        ("Content-Type", "text/plain"),
+        ("Content-Length", str(len(data)))
+    ])
+    return iter([data])

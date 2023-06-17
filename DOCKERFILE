@@ -7,4 +7,4 @@ COPY *.js /opt/angular-python-pi/
 COPY *.py /opt/angular-python-pi/
 CMD ./opt/angular-python-pi/startup.sh
 EXPOSE 8443
-EXPOSE 9443
+EXPOSE 8080
