@@ -3,10 +3,11 @@
 Example Repository of a node server using express to deliver an Angular application. The Angular application is then able to call an endpoint in express.js via get with a button called "Run Script" that is availab le at the application. This will run the script in src/main/script1.py on the system.
 
 ## Docker with Build of Angular Application Directly on Device
+
 Run the following to create the docker image
-```npm run-script dockerBuild```
+`npm run-script dockerBuild`
 And then run the image with docker.
-```npm run-script dockerRun```
+`npm run-script dockerRun`
 
 ## Development server
 
@@ -27,11 +28,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run in another shell
-```webdriver-manager start```
+`webdriver-manager start`
 
 Then run `npm run-script e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-You will need to have protractor installed globlally for this to work ```npm -g install protractor```
+You will need to have protractor installed globlally for this to work `npm -g install protractor`
 
 You will also need the image running on port 8080.
 

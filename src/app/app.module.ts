@@ -10,6 +10,6 @@ import { ExampleRunscript1Component } from './example-runscript1/example-runscri
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

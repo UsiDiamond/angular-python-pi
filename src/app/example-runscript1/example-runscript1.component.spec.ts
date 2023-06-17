@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing'
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ExampleRunscript1Component } from './example-runscript1.component';
 
 describe('ExampleRunscript1Component', () => {
@@ -9,8 +9,8 @@ describe('ExampleRunscript1Component', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ExampleRunscript1Component],
-      imports:[HttpClientTestingModule],
-      schemas:[HttpClientTestingModule],
+      imports: [HttpClientTestingModule],
+      schemas: [HttpClientTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ExampleRunscript1Component);

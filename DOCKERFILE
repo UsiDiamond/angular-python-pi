@@ -1,16 +1,10 @@
 FROM node:14
 WORKDIR /
-COPY src /opt/angular-python-pi/src
+COPY public /opt/angular-python-pi/public
 COPY *.json /opt/angular-python-pi/
+COPY startup.sh /opt/angular-python-pi/startup.sh
 COPY *.js /opt/angular-python-pi/
-CMD apt-get update && \
-apt-get install -y git curl python3.4 python-pip  && \
-pip install pathlib && \
-mkdir ./opt/angular-python-pi/logs && \
-cd ./opt/angular-python-pi/ && \
-python /opt/angular-python-pi/src/main/startup-script.py && \
-npm install && \
-npm run-script build &&  \
-touch /opt/angular-python-pi/logs/cgi.log && \
-node /opt/angular-python-pi/src/main/server.js
+COPY *.py /opt/angular-python-pi/
+CMD ./opt/angular-python-pi/startup.sh
+EXPOSE 8443
 EXPOSE 8080
