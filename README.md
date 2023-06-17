@@ -36,6 +36,10 @@ You will need to have protractor installed globlally for this to work `npm -g in
 
 You will also need the image running on port 8080.
 
+## Running Gunicorn
+Assuming you have python and gunicorn installed this will start the python API locally
+```npm run-script runAPI```
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
