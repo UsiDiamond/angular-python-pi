@@ -1,19 +1,11 @@
 const express = require("express");
 const path = require("path");
 const https = require("https");
-const cors = require("cors");
 const fs = require("fs");
 const rateLimit = require("express-rate-limit");
 const { spawn } = require("child_process");
 const app = express();
 const port = 8443;
-// Use body-parser
-var corsOptions = {
-  origin: "http://localhost:" + port + '/',
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
 var bodyParser = require("body-parser");
 // Define the JSON parser as a default way
 // to consume and produce data through the
