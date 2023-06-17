@@ -1,13 +1,17 @@
 const express = require("express");
 const path = require("path");
 const https = require("https");
-const cors = require("cors");
 const fs = require("fs");
+const rateLimit = require("express-rate-limit");
 const { spawn } = require("child_process");
 const app = express();
 const port = 8443;
 // Use body-parser
-app.use(cors());
+var corsOptions = {
+  origin: "http://localhost:9443/",
+  optionsSuccessStatus: 200,
+};
+
 var bodyParser = require("body-parser");
 // Define the JSON parser as a default way
 // to consume and produce data through the
@@ -24,31 +28,16 @@ function getRoot(request, response) {
   response.sendFile(path.resolve(distDir + "index.html"));
 }
 
-/*  "/api/status"
- *   GET: Get server status
- *   PS: it's just an example, not mandatory
- */
-app.get("/api/status", function (req, res) {
-  res.status(200).json({ status: "UP" });
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
-app.get("/cgi-gateway/script1", (res) => {
-  var dataToSend;
-  // spawn new child process to call the python script
-  const spawn = require("child_process").spawn;
-  const pythonProcess = spawn("python", ["/opt/angular-python-pi/script1.py"]);
-  // collect data from script
-  pythonProcess.stdout.on("data", function (data) {
-    console.log("Pipe data from python script ...");
-    dataToSend = data.toString();
-  });
-  // in close event we are sure that stream from child process is closed
-  pythonProcess.on("close", (code) => {
-    console.log(`child process close all stdio with code ${code}`);
-    // send data to browser
-  });
-});
-app.get("/", getRoot);
+// Apply the rate limiting middleware to API calls only
+
+app.get("/", getRoot, apiLimiter);
 
 https
   .createServer(

@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "body-parser": "^1.20.2",
+    "express-rate-limit": "^6.7.0",
     "fs": "0.0.1-security",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
