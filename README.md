@@ -1,6 +1,6 @@
 # AngularPythonPi 
 
-Example Repository of a node server using express to deliver an Angular application. The Angular application is then able to call an endpoint in express.js via get with a button called "Run Script" that is availab le at the application. This will run the script in src/main/script1.py on the system.
+Example Repository of a node server using express to deliver an Angular application. The Angular application is then able to call an endpoint in express.js via get with a button called "Run Script" that is availab le at the application. This will run the script in gunicorn.
 
 ## Docker with Build of Angular Application Directly on Device
 

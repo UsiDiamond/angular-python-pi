@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ExampleRunscript1Service {
-  private configUrl: string = 'https://localhost:8443/cgi-gateway/script1';
+  private configUrl: string = 'https://localhost:9443/';
   constructor(private http: HttpClient) {}
 
   runScript() {

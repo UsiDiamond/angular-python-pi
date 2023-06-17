@@ -11,7 +11,7 @@
     "converage": "ng test --no-watch --code-coverage",
     "e2e": "webdriver-manager start && protractor ./src/test/protractor-config.js",
     "dockerBuild": "docker build -f .\\DOCKERFILE -t angular-python-pi .",
-    "dockerRun": "docker run  --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=NODE_VERSION=14.21.3 --env=YARN_VERSION=1.22.19 --workdir=/ -p 8443:8443 --runtime=runc -d angular-python-pi:latest",
+    "dockerRun": "docker run  --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=NODE_VERSION=14.21.3 --env=YARN_VERSION=1.22.19 --workdir=/ -p 8443:8443 -p 9443:9443 --runtime=runc -d angular-python-pi:latest",
     "generateTempKeys": "openssl req -subj '/CN=yourcompany.com/O=Name/C=US' -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout secrets/server.key -out secrets/server.crt"
   },
   "private": true,
