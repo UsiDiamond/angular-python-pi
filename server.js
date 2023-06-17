@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
-
+const https = require("https");
+const fs = require("fs");
 const { spawn } = require("child_process");
 const app = express();
-const port = 8080;
+const port = 8443;
 // Use body-parser
 var bodyParser = require("body-parser");
 // Define the JSON parser as a default way
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 // Create link to Angular build directory
 // The `ng build` command will save the result
 // under the `dist` folder.
-var distDir = __dirname + "../../../dist/angular-python-pi/";
+var distDir = __dirname + "/public/angular-python-pi/";
 app.use(express.static(distDir));
 
 function getRoot(request, response) {
@@ -33,7 +34,7 @@ app.get("/cgi-gateway/script1", (res) => {
   var dataToSend;
   // spawn new child process to call the python script
   const spawn = require("child_process").spawn;
-  const pythonProcess = spawn('python',['/opt/angular-python-pi/src/main/script1.py'],);
+  const pythonProcess = spawn("python", ["/opt/angular-python-pi/script1.py"]);
   // collect data from script
   pythonProcess.stdout.on("data", function (data) {
     console.log("Pipe data from python script ...");
@@ -43,12 +44,19 @@ app.get("/cgi-gateway/script1", (res) => {
   pythonProcess.on("close", (code) => {
     console.log(`child process close all stdio with code ${code}`);
     // send data to browser
-  
   });
 });
 app.get("/", getRoot);
 
-app.listen(port, () =>
-  console.log(`Example app listening on port 
+https
+  .createServer(
+    {
+      key: fs.readFileSync("./server.key"),
+      cert: fs.readFileSync("./server.crt"),
+    },
+    app
+  )
+  .listen(port, () =>
+    console.log(`Example app listening on port 
 ${port}!`)
-);
+  );
