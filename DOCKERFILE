@@ -1,5 +1,5 @@
 FROM node:14
-WORKDIR /
+WORKDIR /opt/angular-python-pi/
 COPY public /opt/angular-python-pi/public
 COPY *.json /opt/angular-python-pi/
 COPY startup.sh /opt/angular-python-pi/startup.sh
