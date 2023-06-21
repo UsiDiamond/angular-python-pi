@@ -1,4 +1,4 @@
-# AngularPythonPi 
+# AngularPythonPi  [![Node.js CI](https://github.com/usiiasirrush/angular-python-pi/actions/workflows/node.js.yml/badge.svg)](https://github.com/usiiasirrush/angular-python-pi/actions/workflows/node.js.yml)
 
 Example Repository of a node server using express to deliver an Angular application. The Angular application is then able to call an endpoint in controller.py via get with a button called "Run Script" that is availab le at the application. This will run the script in gunicorn.
 
