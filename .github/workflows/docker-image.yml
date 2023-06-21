@@ -2,17 +2,22 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "development" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "development" ]
 
 jobs:
-
   build:
-
+    strategy:
+      matrix:
+        node-version: [14.x]
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file DOCKERFILE --tag angular-python-pi:$(date +%s)
+    - name: Package Application
+      run: |
+        npm install -g @angular/cli
+        npm install
+        npm run-script build
+        docker build . --file Dockerfile --tag angular-python-pi:$(date +%s)
