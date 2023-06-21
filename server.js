@@ -8,6 +8,13 @@ const { spawn } = require("child_process");
 const app = express();
 const port = 8443;
 // Use body-parser
+// set up rate limiter: maximum of five requests per minute
+var RateLimit = require('express-rate-limit');
+var limiter = RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
+app.use(limiter)
 
 app.use(cors());
 var bodyParser = require("body-parser");
